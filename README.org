@@ -1,0 +1,15 @@
+* gsl-nim - wrapper for the GNU Scientific Library
+
+See the GNU Scientific Library here:
+
+https://www.gnu.org/software/gsl/doc/html/index.html
+
+*NOTE:* for the time being this is only a playground to try out
+ nimterop and use the GSL to compare a few numeric algorithms
+ implemented in Nim to some trustworthy implementations.
+
+Once I know my way around [[https://github.com/nimterop/nimterop][nimterop]] a little more, I'll turn this into
+a full low level wrapper, with high level pieces wherever I have a use
+for them (given the scale of the GSL I don't feel like providing high
+level wrappers for everything... :) ).
+
