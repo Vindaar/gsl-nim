@@ -13,3 +13,37 @@ a full low level wrapper, with high level pieces wherever I have a use
 for them (given the scale of the GSL I don't feel like providing high
 level wrappers for everything... :) ).
 
+
+** Get up and running
+
+Make sure to install the =gsl= on your system (since for the time
+being we only use nimterop to generate the information required for
+the funcs in the dynamic library!):
+
+Something like:
+#+BEGIN_SRC 
+sudo apt install gsl gsl-devel 
+#+END_SRC
+I assume for Ubuntu like systems?
+
+For void linux:
+#+BEGIN_SRC sh
+sudo xbps-install -S gsl gsl-devel
+#+END_SRC
+
+Clone this repository:
+#+BEGIN_SRC sh
+cd <someDir>
+git clone https://github.com/Vindaar/gsl-nim
+cd gsl-nim
+#+END_SRC
+Then clone the gsl repository, which we use to generate the bindings
+(this will be done by nimterop in the near future):
+
+#+BEGIN_SRC sh
+git clone https://github.com/ampl/gsl
+#+END_SRC
+
+This isn't a proper nimble module yet. So you have to put your code
+here or copy the gsl.nim and gsl_integrate.nim to wherever you need to
+run the code...
