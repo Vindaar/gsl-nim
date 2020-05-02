@@ -35,22 +35,3 @@ cImport(cSourcesPath / "gsl_math.h")
 cImport(cSourcesPath / "integration/gsl_integration.h")
 
 #cCompile(cSourcesPath / "integration/*.c")
-
-proc testfn(x: cdouble, params: pointer): cdouble {.cdecl.} =
-  echo "x ", x
-
-proc integrate_qagiu(fn: IntegrateFunc) =
-  var w: ptr gsl_integration_workspace = gsl_integration_workspace_alloc(1e6.uint)
-  var
-    res: float
-    error: float
-    f: gsl_function
-  f.function = testfn
-  var p = @[1.0, 1.0]
-  f.params = addr p[0]
-  var auxThing = 1e6.uint
-  var thing1 = 1e-5
-  echo gsl_integration_qagiu(addr f, 0, 1e-5, thing1, auxThing, w, addr res, addr error);
-  gsl_integration_workspace_free(w)
-
-test()
